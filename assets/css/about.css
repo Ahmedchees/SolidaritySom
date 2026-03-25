@@ -1,0 +1,114 @@
+/* ================= ABOUT HERO ================= */
+.about-hero {
+    padding: 140px 0 80px;
+    background: linear-gradient(rgba(10,20,30,0.6), rgba(10,20,30,0.6)),
+                url('../images/about-hero.jpg') center/cover no-repeat;
+    text-align: center;
+    color: #fff;
+}
+
+.about-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* ================= MISSION & VISION ================= */
+.mission-vision {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.mv-card {
+    background: #f7f9fb;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.mv-card h2 {
+    color: #0A4D68;
+    margin-bottom: 15px;
+}
+
+/* ================= VALUES SECTION ================= */
+.values-section {
+    padding: 80px 0;
+    background: #f7f9fb;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+.value-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-8px);
+}
+
+.value-card img {
+    width: 60px;
+    margin-bottom: 15px;
+}
+
+/* ================= LEADERSHIP SECTION ================= */
+.leadership-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+}
+
+.team-card {
+    background: #f7f9fb;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.team-card img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.team-card .role {
+    color: #1A8F98;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .mv-grid,
+    .values-grid,
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

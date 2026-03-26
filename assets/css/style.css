@@ -165,7 +165,7 @@ body {
 .hero {
     height: 100vh;
     background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6)),
-                url('../images/solidarity.jpg') center/cover no-repeat;
+                url('../images/banner.jpeg') center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,32 +197,288 @@ body {
 .blog-hero {
     padding: 140px 0 80px;
     background: linear-gradient(rgba(10,20,30,0.6), rgba(10,20,30,0.6)),
-                url('../images/blog/blog-hero.jpg') center/cover no-repeat;
+                url('../images/Solodarity\ Group\ agency.png') center/cover no-repeat;
     text-align: center;
     color: #fff;
 }
 
 /* ================= BLOG LIST ================= */
+/* ================= BLOG LIST SECTION - COMPLETE RESPONSIVE STYLES ================= */
+
 .blog-list-section {
-    padding: 80px 0;
+    padding: 5rem 0;
+    background: #f8fafd;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
 }
 
 .blog-list-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 35px;
+    gap: 2rem;
+    margin-top: 1rem;
 }
 
-@media (max-width: 900px) {
+/* Blog Card Styles */
+.blog-card {
+    background: #ffffff;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover img {
+    transform: scale(1.05);
+}
+
+.blog-content {
+    padding: 1.8rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-content h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e2a41;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.blog-card:hover .blog-content h3 {
+    color: #1e6f3f;
+}
+
+.blog-content p {
+    color: #5a6e7c;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    flex: 1;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #1e6f3f;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: gap 0.3s ease;
+    margin-top: auto;
+}
+
+.read-more:hover {
+    gap: 12px;
+    color: #145c34;
+}
+
+/* Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= RESPONSIVE BREAKPOINTS ================= */
+
+/* Tablet Landscape / Medium Screens (1024px and below) */
+@media (max-width: 1024px) {
     .blog-list-grid {
-        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .blog-content {
+        padding: 1.5rem;
+    }
+    
+    .blog-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .blog-card img {
+        height: 200px;
     }
 }
 
+/* Tablet Portrait (768px to 1023px) */
+@media (max-width: 768px) {
+    .blog-list-section {
+        padding: 3.5rem 0;
+    }
+    
+    .blog-list-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    .blog-content {
+        padding: 1.25rem;
+    }
+    
+    .blog-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .blog-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .blog-card img {
+        height: 180px;
+    }
+}
+
+/* Mobile Large (480px to 767px) */
 @media (max-width: 600px) {
+    .blog-list-section {
+        padding: 2.5rem 0;
+    }
+    
     .blog-list-grid {
         grid-template-columns: 1fr;
+        gap: 1.8rem;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
     }
+    
+    .blog-content {
+        padding: 1.25rem;
+    }
+    
+    .blog-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .blog-card img {
+        height: 200px;
+    }
+}
+
+/* Mobile Small (up to 480px) */
+@media (max-width: 480px) {
+    .blog-list-section {
+        padding: 2rem 0;
+    }
+    
+    .container {
+        width: 92%;
+    }
+    
+    .blog-list-grid {
+        gap: 1.5rem;
+    }
+    
+    .blog-content {
+        padding: 1rem;
+    }
+    
+    .blog-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .blog-content p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .blog-card img {
+        height: 180px;
+    }
+    
+    .read-more {
+        font-size: 0.85rem;
+    }
+}
+
+/* Optional: Add smooth container padding for extra small devices */
+@media (max-width: 360px) {
+    .blog-content {
+        padding: 0.9rem;
+    }
+    
+    .blog-content h3 {
+        font-size: 1rem;
+    }
+}
+
+/* ================= ADDITIONAL ENHANCEMENTS ================= */
+
+/* Optional: Add a subtle gradient border on hover for cards */
+.blog-card {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.blog-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1e6f3f, #2b9b5a);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    border-radius: 28px 28px 0 0;
+}
+
+.blog-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Optional: Image overlay effect for better visual appeal */
+.blog-card {
+    position: relative;
+}
+
+.blog-card img {
+    display: block;
+}
+
+/* Accessibility: Focus styles for better keyboard navigation */
+.read-more:focus-visible {
+    outline: 2px solid #1e6f3f;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Optional: Loading lazy images gracefully */
+.blog-card img[loading="lazy"] {
+    background: #f0f2f5;
 }
 
 /* ================= HERO VIDEO SECTION ================= */
@@ -315,7 +571,7 @@ body {
     }
 
     .hero {
-        background: url('../images/mobile-hero.jpg') center/cover no-repeat;
+        background: url('../images/banner.jpeg') center/cover no-repeat;
     }
 
     .hero-content h1 {
@@ -645,9 +901,10 @@ body {
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .footer-col h3 {
@@ -655,7 +912,9 @@ body {
     margin-bottom: 15px;
     color: #F2C57C;
 }
-
+.footer-col{
+    max-width:250px;
+}
 .footer-col h4 {
     font-size: 1.3rem;
     margin-bottom: 15px;
@@ -665,6 +924,7 @@ body {
 .footer-col p {
     line-height: 1.6;
     color: #e8f1f2;
+    
 }
 
 .footer-col ul {
@@ -746,11 +1006,14 @@ body {
 
 @media (max-width: 600px) {
     .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .newsletter-form {
         flex-direction: column;
+        gap:20px;
+    }
+.who-image{
+    display: none;
+}
+    .who-text{
+padding:0 20px 0 20px;
     }
 
     .newsletter-form input,
@@ -776,14 +1039,14 @@ body {
 
 /* ================= CONTACT SECTION ================= */
 .contact-section {
-    padding: 80px 0;
+    padding: 50px 20px;
     background: #ffffff;
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-info h2,
@@ -791,7 +1054,10 @@ body {
     color: #0A4D68;
     margin-bottom: 15px;
 }
-
+.contact-title{
+    padding:20px;
+    padding-left: 0px;
+}
 .info-item {
     display: flex;
     align-items: center;
@@ -1035,6 +1301,45 @@ body {
     text-align: center;
     margin-top: 40px;
 }
+/* ===========================
+   WHO WE ARE SECTION
+=========================== */
+.who-we-are {
+    padding: 90px 0;
+    background: var(--light-bg);
+}
+
+.who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    align-items: center;
+}
+
+.who-text h2 {
+    font-size: 2.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+}
+
+.who-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 15px;
+}
+
+.who-text .btn-primary {
+    margin-top: 10px;
+}
+
+.who-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+/* Reveal animation already exists in your CSS */
 
 /* Responsive */
 @media (max-width: 900px) {

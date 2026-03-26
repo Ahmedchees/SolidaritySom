@@ -6,6 +6,169 @@
     <title>News & Updates | Solodaritysom Agency</title>
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* ========== BLOG LIST SECTION (responsive grid + pagination) ========== */
+        .blog-list-section {
+            padding: 5rem 0;
+            background: #f9fafc;
+        }
+        .blog-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .blog-content {
+            padding: 1.6rem;
+        }
+        .blog-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #1e6f3f;
+        }
+        .blog-content p {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .read-more {
+            font-weight: 600;
+            color: #1e6f3f;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .read-more:hover { gap: 10px; }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .page-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #1e2a41;
+        }
+        .page-btn.active-page {
+            background: #1e6f3f;
+            color: white;
+            border-color: #1e6f3f;
+        }
+        .page-btn:hover:not(.active-page) {
+            background: #eef2f0;
+            border-color: #1e6f3f;
+        }
+
+        /* ========== SINGLE POST PAGE (dynamic overlay / modal style but separate page concept) ========== */
+        /* This will be shown as a separate view (dynamic content) */
+        .single-post-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+        }
+        .post-header {
+            margin-bottom: 2rem;
+        }
+        .post-title {
+            font-size: 2.5rem;
+            color: #1e6f3f;
+            margin-bottom: 0.5rem;
+        }
+        .post-meta {
+            color: #6c7a8e;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .featured-media {
+            margin: 1.5rem 0;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+        .featured-media img, .featured-media video {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+        .post-description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2d3e50;
+            margin: 1.5rem 0;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .gallery-grid img {
+            border-radius: 18px;
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: 0.2s;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0f2f5;
+            padding: 8px 20px;
+            border-radius: 40px;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #1e6f3f;
+        }
+        footer {
+            background: #0a1f1c;
+            color: #e2e8f0;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .hidden-view {
+            display: none;
+        }
+        .blog-view {
+            display: block;
+        }
+        .single-view {
+            display: none;
+            padding: 2rem 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,41 +207,22 @@
     </section>
 
     <!-- ================= BLOG LIST ================= -->
-    <section class="blog-list-section">
-        <div class="container blog-list-grid">
+    <!-- BLOG LIST SECTION (with pagination & responsive) -->
+<section id="blogListView" class="blog-list-section blog-view">
+    <div class="container">
+        
+        <div id="blogGridContainer" class="blog-list-grid"></div>
+        <div id="paginationContainer" class="pagination"></div>
+    </div>
+</section>
 
-            <!-- Blog Post 1 -->
-            <div class="blog-card reveal">
-                <img src="assets/images/blog/blog1.jpg" alt="">
-                <div class="blog-content">
-                    <h3>Clean Water Project Transforms Local Community</h3>
-                    <p>Our recent water rehabilitation project has provided safe drinking water to over 3,000 people...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </div>
-
-            <!-- Blog Post 2 -->
-            <div class="blog-card reveal">
-                <img src="assets/images/blog/blog2.jpg" alt="">
-                <div class="blog-content">
-                    <h3>Supporting Families Through Food Assistance</h3>
-                    <p>Solodaritysom continues to deliver emergency food support to vulnerable households...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </div>
-
-            <!-- Blog Post 3 -->
-            <div class="blog-card reveal">
-                <img src="assets/images/blog/blog3.jpg" alt="">
-                <div class="blog-content">
-                    <h3>Empowering Youth Through Education Programs</h3>
-                    <p>Our youth empowerment initiatives are helping young people gain skills and confidence...</p>
-                    <a href="#" class="read-more">Read More →</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
+<!-- SINGLE POST VIEW (dynamic) -->
+<section id="singlePostView" class="single-view">
+    <div class="container">
+        <button id="backToBlogBtn" class="back-btn"><i class="fas fa-arrow-left"></i> Back to all posts</button>
+        <div id="dynamicPostContent" class="single-post-container"></div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -89,10 +233,10 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Solodaritysom Agency – Jubbaland State.</p>
+            <p>© 2026 Solodarity Group Agency – Jubbaland State.</p>
         </div>
     </footer>
-
+<script src="assets/js/blog.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

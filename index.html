@@ -10,6 +10,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css">
     <style>
         .logo{
             display: flex;
@@ -383,19 +384,34 @@
 
     <!-- ================= HERO SECTION (Video will be added later) ================= -->
    <!-- ================= HERO SECTION WITH VIDEO ================= -->
-<section class="hero">
-    <video autoplay muted loop playsinline class="hero-video">
-        <source src="assets/videos/homepage-video.mp4" type="video/mp4">
-    </video>
+<section class="hero hero-header">
+        <!-- SLIDER IMAGES (5 amazing high-quality attractive images) inserted as background slides -->
+        <div class="slider-container">
+            <div class="slide" style="background-image: url('assets/images/banners/banner_1.jpeg'); background-size: cover;"></div>
+            <div class="slide" style="background-image: url('assets/images/banners/banner_5.jpeg'); background-size: cover;"></div>
+            <div class="slide" style="background-image: url('assets/images/banners/banner_6.jpeg'); background-size: cover;"></div>
+            <div class="slide" style="background-image: url('assets/images/banners/banner_4.jpeg'); background-size: cover;"></div>
+            <div class="slide" style="background-image: url('assets/images/banners/Banner_5.jpg'); background-size: cover;"></div>
+             <div class="slide" style="background-image: url('assets/images/banners/banner_8.jpeg'); background-size: cover;"></div>
+              <div class="slide" style="background-image: url('assets/images/banners/banner10.jpeg'); background-size: cover;"></div>
+               <div class="slide" style="background-image: url('assets/images/banners/banner_7.jpeg'); background-size: cover;"></div>
+             
+        </div>
 
-    <div class="overlay"></div>
+        <!-- original overlay div (unchanged) -->
+        <div class="overlay"></div>
 
-    <div class="hero-content fade-in">
-        <h1>Solidarity Group of Jubbaland (SGJ)</h1>
-        <p>A holistic Approach to Community Well-being and Social Justice Development</p>
-        <a href="programs.html" class="btn-primary">Discover Our Mission</a>
-    </div>
-</section>
+        <!-- original hero content with text and button (untouched, exactly as provided) -->
+        <div class="hero-content hero-content-header fade-in">
+            <h1>Solidarity Group of Jubbaland (SGJ)</h1>
+            <p>A holistic Approach to Community Well-being and Social Justice Development</p>.
+            <a href="programs.html" class="btn-primary btn-primary-header">Discover Our Mission</a>
+        </div>
+
+        <!-- dots navigation container (attractive bottom) -->
+        <div class="dots-container" id="dotsContainer"></div>
+    </section>
+
 <section class="who-we-are">
     <div class="container who-grid">
 
@@ -578,10 +594,10 @@
             </div>
 
             <div class="blog-card reveal">
-                <img src="assets/images/programs/oldtoilets.jpeg" alt="Blog Image">
+                <img src="assets/images/programs/eldersTraining.jpeg" alt="Blog Image">
                 <div class="blog-content">
-                    <h3>Empowering Youth Through Education Programs</h3>
-                    <p>Our youth empowerment initiatives are helping young people gain skills and confidence...</p>
+                    <h3>Fgm training for community elders</h3>
+                    <p>Fgm training for community elders and civil society and police forces in kismayo...</p>
                     <a href="blog.html" class="read-more">Read More →</a>
                 </div>
             </div>
@@ -651,7 +667,7 @@
 </footer>
 
 
-    <!-- Main JS -->
+    <script src="assets/js/index.js"></script>
     <script src="assets/js/main.js"></script>
 
 </body>
